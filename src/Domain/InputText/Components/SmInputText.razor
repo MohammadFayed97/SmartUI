@@ -1,0 +1,4 @@
+﻿@inherits BaseInputComponent<string>
+
+<input @ref="ElementRef" class="form-control @CssClass @_cssClassBuilder.ToString()" disabled="@Disabled" id="@Id" placeholder="@Placeholder" 
+       @bind-value="@CurrentValueAsString" @bind-value:event="@BindValueEventName" @attributes="@Attributes">
