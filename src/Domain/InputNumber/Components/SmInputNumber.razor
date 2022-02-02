@@ -1,0 +1,14 @@
+﻿@typeparam TValue
+
+@inherits BaseInputComponent<TValue>
+
+@if (IsChangeOnKeyPress)
+{
+    <input type="number" @ref="ElementRef" class="form-control @CssClass @_cssClassBuilder.ToString()" disabled="@Disabled" id="@Id" placeholder="@Placeholder" 
+           value="@CurrentValueAsString" @oninput="(e) => CurrentValueAsString = e.Value?.ToString()" @attributes="@Attributes" />
+}
+else
+{
+    <input type="number" @ref="ElementRef" class="form-control @CssClass @_cssClassBuilder.ToString()" disabled="@Disabled" id="@Id" placeholder="@Placeholder" 
+           @bind-value="@CurrentValueAsString" @bind-value:event="@BindValueEventName" @attributes="@Attributes" />
+}
