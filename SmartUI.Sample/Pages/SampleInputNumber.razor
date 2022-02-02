@@ -1,0 +1,33 @@
+﻿@page "/SampleInputNumber"
+@using System.ComponentModel.DataAnnotations
+
+<SmInputNumber TValue="int" @bind-Value="number1" Disabled="person.Age > 11" min="0" />
+Number1 is @number1
+<br />
+<SmInputNumber TValue="double" @bind-Value="doubleNumber" Placeholder="Enter doubleNumber Here" />
+doubleNumber is @doubleNumber
+<br />
+<SmInputNumber TValue="float" @bind-Value="floatNumber" IsChangeOnKeyPress="true" Placeholder="Enter floatNumber Here" />
+floatNumber is @floatNumber
+<br />
+<EditForm Model="person">
+    <DataAnnotationsValidator />
+    <SmInputNumber TValue="int?" @bind-Value="person.Age" IsChangeOnKeyPress="true" Placeholder="Enter person.Age Here" />
+    <ValidationMessage For="() => person.Age" />
+</EditForm>
+person.Age is @person.Age
+<br />
+
+@code {
+    private int number1;
+    private double doubleNumber;
+    private float floatNumber;
+    private Person person = new Person();
+
+    private class Person
+    {
+        [Required]
+        [Range(2, 10)]
+        public int? Age { get; set; }
+    }
+}
