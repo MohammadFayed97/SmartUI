@@ -5,25 +5,29 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0A98C23F-E3EC-40F6-B43E-E56D7D9CD782}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartUI.Sample", "SmartUI.Sample\SmartUI.Sample.csproj", "{A79C6147-0D85-4B44-A38E-5B3BF06A56DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartUI.Sample", "SmartUI.Sample\SmartUI.Sample.csproj", "{A79C6147-0D85-4B44-A38E-5B3BF06A56DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SmartUI.Blazor", "SmartUI.Blazor", "{340588D9-9D93-4020-9C38-A54DD275E698}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartUI.Blazor", "src\SmartUI.Blazor\SmartUI.Blazor.csproj", "{D199BEEB-CBB4-4EBB-A720-E279A448BC86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartUI.Blazor", "src\SmartUI.Blazor\SmartUI.Blazor.csproj", "{D199BEEB-CBB4-4EBB-A720-E279A448BC86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartUI.Blazor.Shared", "src\SmartUI.Blazor.Shared\SmartUI.Blazor.Shared.csproj", "{B2F44CB3-1AA9-4D00-A809-303C4945711E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartUI.Blazor.Shared", "src\SmartUI.Blazor.Shared\SmartUI.Blazor.Shared.csproj", "{B2F44CB3-1AA9-4D00-A809-303C4945711E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SmartUI.Blazor.Forms", "SmartUI.Blazor.Forms", "{B1C8EF6A-6222-472E-A195-464BDD5EAC51}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{92A735A1-0915-4293-BBCE-3697E4844918}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartUI.Blazor.Forms", "src\Domain\SmartUI.Blazor.Forms\SmartUI.Blazor.Forms.csproj", "{B8592ABA-EDF7-404D-B89E-9A7F3BD08BCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartUI.Blazor.Forms", "src\Domain\SmartUI.Blazor.Forms\SmartUI.Blazor.Forms.csproj", "{B8592ABA-EDF7-404D-B89E-9A7F3BD08BCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartUI.Blazor.Forms.Shared", "src\Domain\SmartUI.Blazor.Forms.Shared\SmartUI.Blazor.Forms.Shared.csproj", "{03DE9008-CD74-46B8-8869-D5397D62EF4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartUI.Blazor.Forms.Shared", "src\Domain\SmartUI.Blazor.Forms.Shared\SmartUI.Blazor.Forms.Shared.csproj", "{03DE9008-CD74-46B8-8869-D5397D62EF4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InputText", "InputText", "{FE0E31A3-035B-48C9-9211-902E6FB174A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputText", "src\Domain\InputText\InputText.csproj", "{3A5F1643-0C90-4716-BE8C-A1C37AAE886F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InputText", "src\Domain\InputText\InputText.csproj", "{3A5F1643-0C90-4716-BE8C-A1C37AAE886F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InputNumber", "InputNumber", "{29BE085B-9663-4908-B0FA-680BA7767A75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputNumber", "src\Domain\InputNumber\InputNumber.csproj", "{A882CF74-9C05-42A4-9804-F1B34B9AD4D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +59,10 @@ Global
 		{3A5F1643-0C90-4716-BE8C-A1C37AAE886F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A5F1643-0C90-4716-BE8C-A1C37AAE886F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A5F1643-0C90-4716-BE8C-A1C37AAE886F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A882CF74-9C05-42A4-9804-F1B34B9AD4D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A882CF74-9C05-42A4-9804-F1B34B9AD4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A882CF74-9C05-42A4-9804-F1B34B9AD4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A882CF74-9C05-42A4-9804-F1B34B9AD4D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +77,8 @@ Global
 		{03DE9008-CD74-46B8-8869-D5397D62EF4B} = {B1C8EF6A-6222-472E-A195-464BDD5EAC51}
 		{FE0E31A3-035B-48C9-9211-902E6FB174A5} = {B1C8EF6A-6222-472E-A195-464BDD5EAC51}
 		{3A5F1643-0C90-4716-BE8C-A1C37AAE886F} = {FE0E31A3-035B-48C9-9211-902E6FB174A5}
+		{29BE085B-9663-4908-B0FA-680BA7767A75} = {B1C8EF6A-6222-472E-A195-464BDD5EAC51}
+		{A882CF74-9C05-42A4-9804-F1B34B9AD4D9} = {29BE085B-9663-4908-B0FA-680BA7767A75}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {993FAA26-96FE-4E72-8BAD-3747FB3C3F55}
