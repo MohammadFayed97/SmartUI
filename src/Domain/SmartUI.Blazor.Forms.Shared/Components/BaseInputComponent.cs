@@ -75,7 +75,7 @@ public abstract class BaseInputComponent<TValue> : BaseComponent
     /// If true then input will be disabled
     /// </summary>
     [Parameter]
-    public string Disabled { get; set; }
+    public bool Disabled { get; set; }
 
     /// <summary>
     /// Captures all the custom attribute that are not part of Blazorise component.
