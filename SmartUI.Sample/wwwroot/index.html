@@ -8,14 +8,14 @@
     <base href="/" />
     <!--Bootstrap framework-->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="fontawesome-free/css/all.min.css" rel="stylesheet" />
     <!--SmartUI Style-->
     <link href="_content/SmartUI.Blazor/SmartUI_style.min.css" rel="stylesheet" />
     <!--App style-->
     <link href="css/app.css" rel="stylesheet" />
-    <link href="SmartUI.Sample.styles.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="hold-transition sidebar-mini">
     <div id="app">Loading...</div>
 
     <div id="blazor-error-ui">
@@ -24,6 +24,13 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        function collabseSideBar() {
+            var classes = document.querySelector('.sidebar-mini').classList;
+            classes.toggle('sidebar-collapse');
+            classes.toggle('sidebar-open');
+        }
+    </script>
 </body>
 
 </html>
