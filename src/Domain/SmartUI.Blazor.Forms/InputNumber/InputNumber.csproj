@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
@@ -16,12 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InputNumber\InputNumber.csproj" />
-    <ProjectReference Include="..\InputText\InputText.csproj" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <ProjectReference Include="..\SmartUI.Blazor.Forms.Shared\SmartUI.Blazor.Forms.Shared.csproj" />
   </ItemGroup>
+
 
 </Project>

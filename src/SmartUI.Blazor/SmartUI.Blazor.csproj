@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\SmartUI.Blazor.Data\SmartUI.Blazor.Data\SmartUI.Blazor.Data.csproj" />
-    <ProjectReference Include="..\Domain\SmartUI.Blazor.Forms\SmartUI.Blazor.Forms.csproj" />
+    <ProjectReference Include="..\Domain\SmartUI.Blazor.Forms\SmartUI.Blazor.Forms\SmartUI.Blazor.Forms.csproj" />
   </ItemGroup>
 
 </Project>
