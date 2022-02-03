@@ -1,35 +1,5 @@
 ﻿@page "/"
-@using System.ComponentModel.DataAnnotations
 
-<div class="form-group">
-    <label for="exampleInputEmail1">Text1</label>
-    <SmInputText CssClass="form-control-border border-width-2" @bind-Value="text" Disabled="true" />
-</div>
+Welcome in my Library SmartUI
 
-<div class="form-group">
-    <label for="exampleInputEmail1">Text2</label>
-    <SmInputText CssClass="form-control-border border-width-2" @bind-Value="text2" IsChangeOnKeyPress="true" Placeholder="Enter Text2 Here" OnChange="(e) => Console.WriteLine(e)" />
-</div>
-
-<EditForm Model="person">
-    <DataAnnotationsValidator />
-    <SmInputText @bind-Value="person.Name" IsChangeOnKeyPress="true" Placeholder="Enter Name Here" OnChange="(e) => Console.WriteLine(e)" />
-    <ValidationMessage For="() => person.Name" />
-</EditForm>
-          the text1 is @text
-<br />
-the text2 is @text2
-
-@code {
-    private string text;
-    private string text2;
-    private Person person = new Person();
-
-    private class Person
-    {
-        [Required]
-        [MaxLength(10)]
-        public string Name { get; set; }
-
-    }
-}
+<SurveyPrompt />
