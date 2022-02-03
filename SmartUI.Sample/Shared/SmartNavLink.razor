@@ -1,0 +1,30 @@
+﻿<li class="nav-item" @onclick="OnItemClicked">
+    <a href="@Url" class="nav-link">
+        @if (!string.IsNullOrEmpty(Icon))
+        {
+            <i class="nav-icon @Icon"></i>
+        }
+        @ChildContent
+        @if (collabseTreeView)
+        {
+            <ul class="nav nav-treeview" style="display: block;">
+                @TreeView
+            </ul>
+        }
+    </a>
+</li>
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public RenderFragment TreeView { get; set; }
+    [Parameter] public EventCallback OnClick { get; set; }
+    [Parameter] public string Url { get; set; } = "javascript:void(0)";
+    [Parameter] public string Icon { get; set; }
+
+    private bool collabseTreeView;
+    private async Task OnItemClicked()
+    {
+        await OnClick.InvokeAsync();
+        if (TreeView is not null) collabseTreeView = !collabseTreeView;
+    }
+}
