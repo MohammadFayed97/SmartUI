@@ -1,7 +1,36 @@
 ﻿@page "/SampleDataTable"
 
-<DataTable />
+<SmartGrid TSource="Student" DataSource="students" AllowFilter="true" AllowSorting="true" AllowPagination="true">
+    <GridColumns>
+        <GridColumn PropertyName="Id" Title="#" AllowFilter="false" />
+        <GridColumn PropertyName="CreationDate" />
+        <GridColumn PropertyName="Name" Title="Student Name" />
+        <GridColumn PropertyName="Status">
+            <RowTemplate>
+                <span class="badge bg-danger">@(((Student)context).Status)</span>
+            </RowTemplate>
+        </GridColumn>
+    </GridColumns>
+</SmartGrid>
 
 @code {
+    private IEnumerable<Student> students;
+    public class Student
+    {
+        public int Id { get; set; }
+        public DateTime CreationDate { get; set; }
+        public string Name { get; set; }
+        public string Status { get; set; }
+    }
 
+    protected override void OnInitialized()
+    {
+        students = Enumerable.Range(1, 1000).Select(e => new Student
+            {
+                Id = e,
+                CreationDate = DateTime.Now.AddDays(e),
+                Name = $"Student {e}",
+                Status = "Approved"
+            });
+    }
 }
