@@ -25,7 +25,7 @@ public class BaseComponent : ComponentBase, IDisposable
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="args"></param>
-    protected virtual void StateChanged(Object? sender, EventArgs args) => StateHasChanged();
+    protected virtual void StateHasChanged(Object? sender, EventArgs args) => StateHasChanged();
     /// <inheritdoc/>
     public void Dispose() => Dispose(true);
 
