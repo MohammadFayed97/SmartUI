@@ -1,0 +1,107 @@
+﻿@typeparam TSource where TSource : class
+
+@inherits BaseOperationsGrid<TSource, GridColumns, GridColumn>
+
+<CascadingValue Value="this" IsFixed="true">
+    @ChildContent
+</CascadingValue>
+
+@if (_gridColumns is not null)
+{
+    List<GridColumn> visibleColumns = _gridColumns.GetVisibleColumns();
+
+    <div class="table-responsive p-0" style="height: 550px;">
+        <table class="table @CssClass table-head-fixed text-nowrap" id="@Id">
+            <thead>
+                <tr>
+                    @foreach (var column in visibleColumns)
+                    {
+                        <th @key="column" class="@column.CssClass" style="@column.GetColumnHeaderStyle()" id="@column.columnId" nowrap>
+                            <div class="p-3" style="display: grid; align-items: center;">
+                                <div class="d-inline-block  float-left @(column.AllowSorting ? "cursor-pointer" : "")" style="grid-column-start: 1; grid-column-end: 5; " @onclick="(args) => OnColumnClicked(column)">
+                                    @column.HeaderTemplate
+                                </div>
+                            </div>
+                            <div class="grid-operation d-inline-block text-right" style="line-height : 4px; grid-column-start:5 ;">
+                                @if (AllowSorting)
+                                {
+                                    if (column.sortDirection == SortDirection.Asc)
+                                    {
+                                        <span class="fa fa-arrow-down" style="line-height: 25px;" aria-hidden="true" title="Sort Ascending"></span>
+                                    }
+                                    else if (column.sortDirection == SortDirection.Desc)
+                                    {
+                                        <span class="fa fa-arrow-up" style="line-height: 25px;" aria-hidden="true" title="Sort Descending"></span>
+                                    }
+                                }
+                                @if (column.AllowFilter)
+                                {
+                                    var filterRule = _filterRules.SingleOrDefault(r => r.Id == column.columnId);
+                                    <span class="fa fa-filter @(filterRule != null && filterRule.IsApplied ? "text-primary" : "")" style="cursor: pointer; line-height: 25px;" @onclick="(args) => OnFilterClicked(column)"></span>
+                                    if (filterRule != null)
+                                    {
+                                        <GridFilterInput TModel="TSource"
+                                         FilterRule="filterRule"
+                                         ShowFilterInput="filterRule.Id == _filterableColumnId && _showFilterPopover"
+                                         OnFilterApply="ApplyFilter"
+                                         OnFilterCleard="RemoveFilter" />
+                                    }
+                                }
+                            </div>
+                        </th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @if (isDataLoading)
+                {
+                    <tr>
+                        <td colspan="@visibleColumns.Count">
+                            Loading...
+                            @*<Spinner IsLoading="true" />*@
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    if (_items is null || _items.Count() == 0)
+                    {
+                        <tr>
+                            <td colspan="@visibleColumns.Count" class="text-center">
+                                <p><h3>@NoRecordsText</h3></p>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (TSource item in _items)
+                        {
+                            <tr @key="item" id="@item.GetHashCode()" class="@(item.Equals(_selectedItem) ? SelectedItemCssClass : "")" style="cursor: pointer"
+                                @onclick="@(async (args) => await OnRowClickedEvent(args, item))">
+                                @foreach (var column in visibleColumns)
+                                {
+                                    <td @key="column" style="cursor: pointer; @column.GetColumnCellStyle()">@column.RowTemplate(item)</td>
+                                }
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}
+<style>
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    .grid-operation {
+        position: relative;
+    }
+
+    .grid-container {
+        overflow: auto;
+        height: 550px;
+        position: relative;
+    }
+</style>

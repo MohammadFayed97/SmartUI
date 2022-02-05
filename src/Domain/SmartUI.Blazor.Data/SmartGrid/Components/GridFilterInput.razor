@@ -1,0 +1,110 @@
+﻿@typeparam TModel
+
+@inherits BaseComponent
+
+@if (ShowFilterInput)
+{
+    <div class="filter-popover">
+        <div class='filter-arrow'></div>
+        <div class="filter-content p-3">
+            <div class="form-group">
+                @*<DropDownList TValue="int" TModel="ObjectFilter" Value="filterType" ValueChanged="(e) => FilterRule.FilterType = ObjectFilter.FromValue(e)" Placeholder="Choose.."
+                                  DataSource="ObjectFilter.GetAll().Where(o => o.AllowsType(FilterRule.ExpectedValueType))">
+                    <DropDownFieldSetting Value="Id" Text="Name" />
+                </DropDownList>*@
+            </div>
+            <div class="form-group">
+                @if (FilterRule.ExpectedValueType.IsEnum)
+                {
+                }
+                else
+                {
+                    switch (Type.GetTypeCode(FilterRule.ExpectedValueType))
+                    {
+                        case TypeCode.Int32:
+                            <input type="number" class="form-control mb-3" value="@FilterRule.FilterValue1!.ToString()"
+                                   @onchange="(args) => FilterRule.UpdateFilterValue1(args.Value)" />
+                            break;
+                        case TypeCode.String:
+                            <input type="text" class="form-control mb-3" placeholder="Enter Value.." value="@FilterRule.FilterValue1!.ToString()"
+                                   @onchange="(args) => FilterRule.UpdateFilterValue1(args.Value)" />
+                            break;
+                        case TypeCode.DateTime:
+                            <div class="input-group input-group-sm">
+                                <input type="date" class="form-control" @onchange="(args) => FilterRule.UpdateFilterValue1(args.Value)">
+                            </div>
+                            break;
+                    }
+                }
+            </div>
+            @if (FilterRule.FilterType.FilterName == FilterOperation.Between)
+            {
+                <div class="form-group">
+                    @switch (Type.GetTypeCode(FilterRule.ExpectedValueType))
+                    {
+                        case TypeCode.Int32:
+                            <input type="number" class="form-control mb-3" value="@FilterRule.FilterValue2!.ToString()"
+                                   @onchange="(args) => FilterRule.UpdateFilterValue2(args.Value)" />
+                            break;
+                        case TypeCode.DateTime:
+                            <div class="input-group input-group-sm">
+                                <input type="date" class="form-control" @onchange="(args) => FilterRule.UpdateFilterValue2(args.Value)">
+                            </div>
+                            break;
+                    }
+                </div>
+            }
+        </div>
+        <div class="filter-footer p-3">
+            <button class="btn btn-danger" @onclick="async (args) => await OnFilterCleard.InvokeAsync(FilterRule.Id)">Clear</button>
+            <button class="btn btn-primary" @onclick="async (args) => await OnFilterApply.InvokeAsync(FilterRule.Id)">Filter</button>
+        </div>
+    </div>
+}
+
+<style>
+    .filter-popover{
+        position: absolute;
+        top: 45px;
+        right: 0;
+        min-width: 200px;
+        min-height: 100px;
+        background-color: #FFF;
+        z-index: 2 !important;
+        border-radius: 8px; 
+        box-shadow: 0 5px 15px rgb(0 0 0 / 50%); 
+        display: inline-flex; 
+        flex-direction: column
+    }
+    .filter-arrow{
+        position: absolute;
+        display: block; 
+        width: 1rem; 
+        height: .5rem; 
+        border: none; 
+        margin: 0 .3rem; 
+        top: -8px; 
+        right: 0;
+    }
+    .filter-arrow::before {
+        bottom: 1px;
+        position: absolute;
+        display: block;
+        content: '';
+        border-color: transparent;
+        border-style: solid;
+        border-width: 6px;
+        border-bottom-color: rgba(0, 0, 0, .25)
+    }
+
+    .filter-arrow::after {
+        bottom: 0px;
+        position: absolute;
+        display: block;
+        content: '';
+        border-color: transparent;
+        border-style: solid;
+        border-width: 6px;
+        border-bottom-color: #FFF
+    }
+</style>
