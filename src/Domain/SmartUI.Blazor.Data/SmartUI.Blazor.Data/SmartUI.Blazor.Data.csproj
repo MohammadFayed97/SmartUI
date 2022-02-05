@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataTable\DataTable.csproj" />
+    <ProjectReference Include="..\SmartGrid\SmartGrid.csproj" />
   </ItemGroup>
 
 </Project>
