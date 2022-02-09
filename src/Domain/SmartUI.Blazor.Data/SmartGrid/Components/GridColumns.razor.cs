@@ -18,6 +18,12 @@ public partial class GridColumns : BaseGridColumns<GridColumn>
     public override void AddColumn(GridColumn column)
     {
         column.ColumnStateChanged += StateHasChanged;
+
+        if (!column.AllowFilter)
+            column.AllowFilter = Grid.AllowFilter;
+        if (!column.AllowSorting)
+            column.AllowSorting = Grid.AllowSorting;
+
         columns.Add(column);
 
         RaiseStateChanged();
@@ -25,7 +31,7 @@ public partial class GridColumns : BaseGridColumns<GridColumn>
     /// <summary>
     /// The parent DataTable that inherit from <see cref="IBaseDataTable"/>
     /// </summary>
-    [CascadingParameter] public IBaseGrid<GridColumns, GridColumn> Grid { get; set; }
+    [CascadingParameter] public IBaseOperationGrid<GridColumns, GridColumn> Grid { get; set; }
     /// <summary>
     /// Retrive only visible columns
     /// </summary>

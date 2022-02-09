@@ -1,4 +1,5 @@
-﻿@typeparam TSource where TSource : class
+﻿@using Newtonsoft.Json
+@typeparam TSource where TSource : class
 
 @inherits BaseOperationsGrid<TSource, GridColumns, GridColumn>
 
@@ -6,11 +7,19 @@
     @ChildContent
 </CascadingValue>
 
+<div class="d-flex" style="justify-content:space-between; align-items: center">
+    @if (AllowPagination && paginationSettings is not null)
+    {
+        <PageSizeDropDown PageSizes="paginationSettings.PageSizes" Value="paginationSettings.PageSize" OnSelectedPageSize="OnPageSizeChange" />
+    }
+</div>
+
+
 @if (_gridColumns is not null)
 {
     List<GridColumn> visibleColumns = _gridColumns.GetVisibleColumns();
 
-    <div class="table-responsive p-0" style="height: 550px;">
+    <div @ref="ElementRef" class="table-responsive p-0" style="height: 550px;">
         <table class="table @CssClass table-head-fixed text-nowrap" id="@Id">
             <thead>
                 <tr>
@@ -21,32 +30,32 @@
                                 <div class="d-inline-block  float-left @(column.AllowSorting ? "cursor-pointer" : "")" style="grid-column-start: 1; grid-column-end: 5; " @onclick="(args) => OnColumnClicked(column)">
                                     @column.HeaderTemplate
                                 </div>
-                            </div>
-                            <div class="grid-operation d-inline-block text-right" style="line-height : 4px; grid-column-start:5 ;">
-                                @if (AllowSorting)
-                                {
-                                    if (column.sortDirection == SortDirection.Asc)
+                                <div class="grid-operation d-inline-block text-right" style="line-height : 4px; grid-column-start:5 ;">
+                                    @if (AllowSorting)
                                     {
-                                        <span class="fa fa-arrow-down" style="line-height: 25px;" aria-hidden="true" title="Sort Ascending"></span>
+                                        if (column.sortDirection == SortDirection.Asc)
+                                        {
+                                            <span class="fa fa-arrow-down" style="line-height: 25px;" aria-hidden="true" title="Sort Ascending"></span>
+                                        }
+                                        else if (column.sortDirection == SortDirection.Desc)
+                                        {
+                                            <span class="fa fa-arrow-up" style="line-height: 25px;" aria-hidden="true" title="Sort Descending"></span>
+                                        }
                                     }
-                                    else if (column.sortDirection == SortDirection.Desc)
+                                    @if (column.AllowFilter)
                                     {
-                                        <span class="fa fa-arrow-up" style="line-height: 25px;" aria-hidden="true" title="Sort Descending"></span>
+                                        var filterRule = _filterRules.SingleOrDefault(r => r.Id == column.columnId);
+                                        <span class="fa fa-filter @(filterRule != null && filterRule.IsApplied ? "text-primary" : "")" style="cursor: pointer; line-height: 25px;" @onclick="(args) => OnFilterClicked(column)"></span>
+                                        if (filterRule != null)
+                                        {
+                                            <GridFilterInput TModel="TSource"
+                                             FilterRule="filterRule"
+                                             ShowFilterInput="filterRule.Id == _filterableColumnId && _showFilterPopover"
+                                             OnFilterApply="ApplyFilter"
+                                             OnFilterCleard="RemoveFilter" />
+                                        }
                                     }
-                                }
-                                @if (column.AllowFilter)
-                                {
-                                    var filterRule = _filterRules.SingleOrDefault(r => r.Id == column.columnId);
-                                    <span class="fa fa-filter @(filterRule != null && filterRule.IsApplied ? "text-primary" : "")" style="cursor: pointer; line-height: 25px;" @onclick="(args) => OnFilterClicked(column)"></span>
-                                    if (filterRule != null)
-                                    {
-                                        <GridFilterInput TModel="TSource"
-                                         FilterRule="filterRule"
-                                         ShowFilterInput="filterRule.Id == _filterableColumnId && _showFilterPopover"
-                                         OnFilterApply="ApplyFilter"
-                                         OnFilterCleard="RemoveFilter" />
-                                    }
-                                }
+                                </div>
                             </div>
                         </th>
                     }
@@ -77,7 +86,7 @@
                         @foreach (TSource item in _items)
                         {
                             <tr @key="item" id="@item.GetHashCode()" class="@(item.Equals(_selectedItem) ? SelectedItemCssClass : "")" style="cursor: pointer"
-                                @onclick="@(async (args) => await OnRowClickedEvent(args, item))">
+                @onclick="@(async (args) => await OnRowClickedEvent(args, item))">
                                 @foreach (var column in visibleColumns)
                                 {
                                     <td @key="column" style="cursor: pointer; @column.GetColumnCellStyle()">@column.RowTemplate(item)</td>
@@ -89,6 +98,13 @@
             </tbody>
         </table>
     </div>
+    @if (AllowPagination && paginationSettings is not null)
+    {
+        <div class="paging mt-3">
+            <Pagination MetaData="_responseMetaData" Alignment="paginationSettings.Alignment" LimitOfVisiblePages="paginationSettings.LimitOfPages"
+                SelectedPage="OnSelectedPage" />
+        </div>
+    }
 }
 <style>
     .cursor-pointer {

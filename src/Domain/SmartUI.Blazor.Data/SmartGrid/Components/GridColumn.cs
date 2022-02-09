@@ -19,7 +19,7 @@ namespace SmartUI.Blazor.Data
                 GridColumns.AddColumn(this);
         }
 
-        public override string GetColumnHeaderStyle() => @"padding: 0; box-shadow: inset 0px 1px #dee2e6, 0 1px #dee2e6; text-align: left; min-width: 10vw; top: 0; background-color: #FFF; position: sticky; vertical-align: top; border-top: none;";
+        public override string GetColumnHeaderStyle() => @"padding: 0; text-align: left; min-width: 10vw; top: 0; background-color: #FFF; vertical-align: top;";
         public override string GetColumnCellStyle() => @"text-align: left; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;";
 
         /// <summary>
