@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Pagination\Pagination.csproj" />
     <ProjectReference Include="..\SmartUI.Blazor.Data.Shared\SmartUI.Blazor.Data.Shared.csproj" />
   </ItemGroup>
 

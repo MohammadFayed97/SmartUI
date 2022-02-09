@@ -39,6 +39,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SmartGrid", "SmartGrid", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartGrid", "src\Domain\SmartUI.Blazor.Data\SmartGrid\SmartGrid.csproj", "{2A1DFB61-2802-424B-8DEB-784C162B3207}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pagination", "Pagination", "{318426E9-9B15-4670-BF53-7ABBAF805468}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pagination", "src\Domain\SmartUI.Blazor.Data\Pagination\Pagination.csproj", "{B2CF7FBD-CB1D-485B-8556-F5EECDF8B8BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +89,10 @@ Global
 		{2A1DFB61-2802-424B-8DEB-784C162B3207}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A1DFB61-2802-424B-8DEB-784C162B3207}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A1DFB61-2802-424B-8DEB-784C162B3207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2CF7FBD-CB1D-485B-8556-F5EECDF8B8BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2CF7FBD-CB1D-485B-8556-F5EECDF8B8BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2CF7FBD-CB1D-485B-8556-F5EECDF8B8BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2CF7FBD-CB1D-485B-8556-F5EECDF8B8BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +114,8 @@ Global
 		{3910D5F7-537A-413B-AF9D-150ED7C27DD2} = {29BE085B-9663-4908-B0FA-680BA7767A75}
 		{2868ADBC-8A5B-4C49-A83E-9BB18B8E97C8} = {EE17B837-279D-4F25-BC88-40B8049F54FD}
 		{2A1DFB61-2802-424B-8DEB-784C162B3207} = {2868ADBC-8A5B-4C49-A83E-9BB18B8E97C8}
+		{318426E9-9B15-4670-BF53-7ABBAF805468} = {EE17B837-279D-4F25-BC88-40B8049F54FD}
+		{B2CF7FBD-CB1D-485B-8556-F5EECDF8B8BD} = {318426E9-9B15-4670-BF53-7ABBAF805468}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {993FAA26-96FE-4E72-8BAD-3747FB3C3F55}
