@@ -1,4 +1,4 @@
-﻿namespace SmartUI.Blazor.Forms
+﻿namespace SmartUI.Blazor.Forms.MultiSelect
 {
     using Microsoft.AspNetCore.Components;
     using System;
@@ -9,7 +9,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public partial class InnoMultiSelect<TItem, TValue>
+    public partial class SmMultiSelect<TItem, TValue>
     {
         [Parameter]
         public List<TItem> DataSource { get; set; }
