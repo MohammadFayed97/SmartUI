@@ -23,9 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InputNumber", "InputNumber"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SmartUI.Blazor.Data", "SmartUI.Blazor.Data", "{EE17B837-279D-4F25-BC88-40B8049F54FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartUI.Blazor.Data", "src\Domain\SmartUI.Blazor.Data\SmartUI.Blazor.Data\SmartUI.Blazor.Data.csproj", "{B24AA93A-FB49-48F0-B451-0E52580DC3CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartUI.Blazor.Data", "src\Domain\SmartUI.Blazor.Data\SmartUI.Blazor.Data\SmartUI.Blazor.Data.csproj", "{B24AA93A-FB49-48F0-B451-0E52580DC3CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartUI.Blazor.Data.Shared", "src\Domain\SmartUI.Blazor.Data\SmartUI.Blazor.Data.Shared\SmartUI.Blazor.Data.Shared.csproj", "{BC3425C6-1853-4610-B77C-32BEBD3C381D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartUI.Blazor.Data.Shared", "src\Domain\SmartUI.Blazor.Data\SmartUI.Blazor.Data.Shared\SmartUI.Blazor.Data.Shared.csproj", "{BC3425C6-1853-4610-B77C-32BEBD3C381D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartUI.Blazor.Forms", "src\Domain\SmartUI.Blazor.Forms\SmartUI.Blazor.Forms\SmartUI.Blazor.Forms.csproj", "{BF958739-F3B0-4A04-AF24-DF7698CD5C3E}"
 EndProject
@@ -37,11 +37,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InputNumber", "src\Domain\S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SmartGrid", "SmartGrid", "{2868ADBC-8A5B-4C49-A83E-9BB18B8E97C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartGrid", "src\Domain\SmartUI.Blazor.Data\SmartGrid\SmartGrid.csproj", "{2A1DFB61-2802-424B-8DEB-784C162B3207}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartGrid", "src\Domain\SmartUI.Blazor.Data\SmartGrid\SmartGrid.csproj", "{2A1DFB61-2802-424B-8DEB-784C162B3207}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pagination", "Pagination", "{318426E9-9B15-4670-BF53-7ABBAF805468}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pagination", "src\Domain\SmartUI.Blazor.Data\Pagination\Pagination.csproj", "{B2CF7FBD-CB1D-485B-8556-F5EECDF8B8BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IFR3.Client", "IFR3.Client", "{7CB65476-B614-49C8-98B0-D0E9E609A016}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IFR3.Client", "src\Domain\SmartUI.Blazor.Forms\IFR3.Client\IFR3.Client.csproj", "{5F4ED65D-043B-4827-80FC-181AB166B905}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +97,10 @@ Global
 		{B2CF7FBD-CB1D-485B-8556-F5EECDF8B8BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2CF7FBD-CB1D-485B-8556-F5EECDF8B8BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2CF7FBD-CB1D-485B-8556-F5EECDF8B8BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F4ED65D-043B-4827-80FC-181AB166B905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F4ED65D-043B-4827-80FC-181AB166B905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F4ED65D-043B-4827-80FC-181AB166B905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F4ED65D-043B-4827-80FC-181AB166B905}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +124,8 @@ Global
 		{2A1DFB61-2802-424B-8DEB-784C162B3207} = {2868ADBC-8A5B-4C49-A83E-9BB18B8E97C8}
 		{318426E9-9B15-4670-BF53-7ABBAF805468} = {EE17B837-279D-4F25-BC88-40B8049F54FD}
 		{B2CF7FBD-CB1D-485B-8556-F5EECDF8B8BD} = {318426E9-9B15-4670-BF53-7ABBAF805468}
+		{7CB65476-B614-49C8-98B0-D0E9E609A016} = {B1C8EF6A-6222-472E-A195-464BDD5EAC51}
+		{5F4ED65D-043B-4827-80FC-181AB166B905} = {7CB65476-B614-49C8-98B0-D0E9E609A016}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {993FAA26-96FE-4E72-8BAD-3747FB3C3F55}
